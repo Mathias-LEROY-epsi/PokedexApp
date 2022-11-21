@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- The load static is necessary to load images, css and JS -->
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}" crossorigin="anonymous"/>
+    <link rel="icon" href="{% static 'img/pokeball-icon.ico' %}">
+    <title>Pokedex</title>
+</head>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<body>
+<main>
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <img src="{% static 'img/pokedex-image.png' %}" class="image" style="width:30px;">
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 ms-4 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 text-white">Rechercher un pokémon</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Mon équipe</a></li>
+                </ul>
+
+                <form method="post" role="search" class="d-flex col-12 col-sm-12 col-lg-8 col-md-8 col-xl-5">
+                    <!-- Cross-site request forgery Protection-->
+                    {% csrf_token %}
+                    <!-- Searchbar -->
+                    <input class="form-control me-2"
+                           type="search"
+                           name="pokemon"
+                           placeholder="Rechercher un pokémon par son ID, son nom..."
+                           aria-label="search">
+                    <button class="btn btn-outline-light" type="submit">Rechercher</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <div class="pokemon-container">
+        <div class="pokemon">
+            <!-- Rendering everything requested to the API -->
+            <!-- First we validate the data requested -->
+            {% if number and name %}
+            <img id="pokemon-img" src="{{ image }}" alt="{{ name }} sprite">
+            <div id="pokemon-detail">
+                <h3>
+                    ID : {{ number }}
+                </h3>
+                <h3>
+                    Nom : {{ name }}
+                </h3>
+                <h3>
+                    Taille : {{ height }}
+                </h3>
+                <h3>
+                    Poids : {{ weight }}
+                </h3>
+                <h3>
+                    Type : {{ type1 }} {{ type2 }}
+                </h3>
+                <h3>
+                    Abilities : {{ ability }}
+                </h3>
+                <h3>
+                    Points de vie : {{ hp }}
+                </h3>
+                <h3>
+                    Attaque : {{ attack }}
+                </h3>
+                <h3>
+                    Défense : {{ defense }}
+                </h3>
+                <h3>
+                    Attaque spéciale : {{ special_attack }}
+                </h3>
+                <h3>
+                    Défense spéciale : {{ special_defense }}
+                </h3>
+                <h3>
+                    Vitesse : {{ speed }}
+                </h3>
+            </div>
+            {% else %}
+            <div>
+                {{ all_pokemon }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</main>
+</body>
+</html>

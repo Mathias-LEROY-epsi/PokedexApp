@@ -1,5 +1,8 @@
 # Bienvenu sur notre application POKEDEX !
 
+## Description
+On utilise l'API de [Pokeapi](https://pokeapi.co/).
+
 ## Commandes
 
 ### Initialiser l'environnement
