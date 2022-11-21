@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}" crossorigin="anonymous"/>
     <link rel="icon" href="{% static 'img/pokeball-icon.ico' %}">
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
     <title>Pokedex</title>
 </head>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
@@ -43,56 +44,71 @@
     </header>
 
     <div class="pokemon-container">
-        <div class="pokemon">
             <!-- Rendering everything requested to the API -->
             <!-- First we validate the data requested -->
             {% if number and name %}
-            <img id="pokemon-img" src="{{ image }}" alt="{{ name }} sprite">
-            <div id="pokemon-detail">
-                <h3>
-                    ID : {{ number }}
-                </h3>
-                <h3>
-                    Nom : {{ name }}
-                </h3>
-                <h3>
-                    Taille : {{ height }}
-                </h3>
-                <h3>
-                    Poids : {{ weight }}
-                </h3>
-                <h3>
-                    Type : {{ type1 }} {{ type2 }}
-                </h3>
-                <h3>
-                    Abilities : {{ ability }}
-                </h3>
-                <h3>
-                    Points de vie : {{ hp }}
-                </h3>
-                <h3>
-                    Attaque : {{ attack }}
-                </h3>
-                <h3>
-                    Défense : {{ defense }}
-                </h3>
-                <h3>
-                    Attaque spéciale : {{ special_attack }}
-                </h3>
-                <h3>
-                    Défense spéciale : {{ special_defense }}
-                </h3>
-                <h3>
-                    Vitesse : {{ speed }}
-                </h3>
-            </div>
+
+                <div class="pkm-name">
+                    <div>
+                        N°{{ number }}
+                    </div>
+                    <div>
+                        {{ name }}
+                    </div>
+                </div>
+
+                <div class="pkm-body">
+                    <img class="pkm-img" id="pokemon-img" src="{{ image }}" alt="{{ name }} sprite">
+                    <div>
+                        <div>
+                            Taille : {{ height }}
+                        </div>
+                        <div>
+                            Poids : {{ weight }}
+                        </div>
+                        <div>
+                            Type : {{ type1 }} {{ type2 }}
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        Abilities : {{ ability }}
+                    </div>
+                    <div class="pkm-stats">
+                        <div>
+                            <div>
+                                Points de vie : {{ hp }}
+                            </div>
+                            <div>
+                                Attaque : {{ attack }}
+                            </div>
+                            <div>
+                                Défense : {{ defense }}
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                Attaque spéciale : {{ special_attack }}
+                            </div>
+                            <div>
+                                Défense spéciale : {{ special_defense }}
+                            </div>
+                            <div>
+                                Vitesse : {{ speed }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             {% else %}
             <div>
-                {{ all_pokemon }}
+                Veuillez entrer un nom ou un numéro de pokémon
             </div>
             {% endif %}
-        </div>
     </div>
+
 </main>
 </body>
 </html>

@@ -38,7 +38,7 @@ def index(request):
                 "image": str(list_of_data['sprites']['front_default']),
                 # "type": ,
                 "type1": str(list_of_data['types'][0]['type']['name']).capitalize(),
-                "type2": str(list_of_data['types'][1]['type']['name']).capitalize(),
+                # "type2": str(list_of_data['types'][1]['type']['name']).capitalize(),
                 # "abilities": {
                 #     "ability1": str(list_of_data['abilities'][0]['ability']['name']).capitalize(),
                 #     "ability2": str(list_of_data['abilities'][1]['ability']['name']).capitalize(),
