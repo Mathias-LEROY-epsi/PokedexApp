@@ -1,6 +1,4 @@
-from django.shortcuts import (get_object_or_404,
-                              render,
-                              HttpResponseRedirect)
+from django.shortcuts import (get_object_or_404, render, HttpResponseRedirect)
 import urllib.request
 import json
 from http import HTTPStatus
@@ -41,11 +39,8 @@ def index(request):
                 "weight": str(weight_rounded) + " kg",
                 "image": str(list_of_data['sprites']['front_default']),
                 # "type": ,
-<<<<<<< HEAD
                 "type1": str(list_of_data['types'][0]['type']['name']).capitalize(),
-=======
                 # "type1": str(list_of_data['types'][0]['type']['name']).capitalize(),
->>>>>>> 198fe06 (ajout creer, modifier, afficher Ãequipe)
                 # "type2": str(list_of_data['types'][1]['type']['name']).capitalize(),
                 # "abilities": {
                 #     "ability1": str(list_of_data['abilities'][0]['ability']['name']).capitalize(),
@@ -76,6 +71,7 @@ def index(request):
         else:
             return render(request, "index.html", {"error": "Error"})
 
+
 def create_team(request):
     if request.method == 'POST':
         form = TeamForm(request.POST)
@@ -83,27 +79,26 @@ def create_team(request):
             form.save()
     else:
         form = TeamForm()
-
     return render(request, 'create_team.html', {'form': form})
 
+
 def teams(request):
-    context = {}
-    context["dataset"] = TeamModel.objects.all()
+    context = {"dataset": TeamModel.objects.all()}
     return render(request, 'teams.html', context)
 
-def detail_team(request, id):
-    context = {}
-    context["data"] = TeamModel.objects.get(id = id)
+
+def detail_team(request, team_id):
+    context = {"data": TeamModel.objects.get(id=team_id)}
     return render(request, 'detail_team.html', context)
 
 
-def update_team(request, id):
+def update_team(request, team_id):
     # dictionary for initial data with
     # field names as keys
     context = {}
 
     # fetch the object related to passed id
-    obj = get_object_or_404(TeamModel, id=id)
+    obj = get_object_or_404(TeamModel, id=team_id)
 
     # pass the object as instance in form
     form = TeamForm(request.POST or None, instance=obj)
@@ -112,7 +107,7 @@ def update_team(request, id):
     # redirect to detail_view
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/" + id)
+        return HttpResponseRedirect("/" + team_id)
 
     # add form dictionary to context
     context["form"] = form

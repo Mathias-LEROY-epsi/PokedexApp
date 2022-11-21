@@ -1,8 +1,5 @@
 from django.db import models
 
-# Create your models here.
-<<<<<<< HEAD
-=======
 
 class TeamModel(models.Model):
     name = models.CharField(max_length=50)
@@ -12,7 +9,5 @@ class TeamModel(models.Model):
     pokemon4 = models.CharField(max_length=50)
     pokemon5 = models.CharField(max_length=50)
 
-
     def __str__(self):
         return self.name
->>>>>>> 198fe06 (ajout creer, modifier, afficher Ãequipe)

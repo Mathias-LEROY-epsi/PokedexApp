@@ -1,13 +1,9 @@
 from django.urls import path
-from . import views
+from .views import *
 
 urlpatterns = [
-    path('', views.index, name='index'),
-<<<<<<< HEAD
-=======
-    path('team/create', views.create_team, name='create_team'),
-    path('teams', views.teams, name='teams'),
-    path('team/<id>', views.update_team, name='team'),
-
->>>>>>> 198fe06 (ajout creer, modifier, afficher Ãequipe)
+    path('', index, name='index'),
+    path('team/create', create_team, name='create_team'),
+    path('teams', teams, name='teams'),
+    path('team/<id>', update_team, name='team'),
 ]
