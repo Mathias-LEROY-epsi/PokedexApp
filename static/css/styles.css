@@ -10,4 +10,37 @@ html{
 body{
     margin: 0 auto;
     text-align: center;
+    background-image: url("../img/pokeball-seamless-texture.jpg");
+}
+.pokemon-container {
+    font-size: 2em;
+    margin: 2em auto 0 auto;
+    width : 50%;
+    text-align: center;
+    padding: 2em;
+    border: 10px ridge red;
+    border-radius: 1em;
+    align-items: center;
+    background-color: white;
+}
+.pkm-name{
+    font-family: 'Pokemon Solid', sans-serif;
+    color: #e5e619;
+    text-shadow: black 2px 2px 3px ;
+    letter-spacing: 5px;
+    display: flex;
+    font-size: 2em;
+    justify-content: space-around;
+}
+.pkm-body{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.pkm-img{
+    width:40%
+}
+.pkm-stats{
+    display: flex;
+    justify-content: space-around;
 }
