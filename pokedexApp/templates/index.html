@@ -39,6 +39,8 @@
                            aria-label="search">
                     <button class="btn btn-outline-light" type="submit">Rechercher</button>
                 </form>
+                <p> {{ request.get_full_path }}
+                </p>
             </div>
         </div>
     </header>
@@ -47,6 +49,7 @@
             <!-- Rendering everything requested to the API -->
             <!-- First we validate the data requested -->
             {% if number and name %}
+<<<<<<< HEAD
 
                 <div class="pkm-name">
                     <div>
@@ -102,6 +105,51 @@
                     </div>
                 </div>
 
+=======
+            <img id="pokemon-img" src="{{ image }}" alt="{{ name }} sprite">
+            <div id="pokemon-detail">
+                <h3>
+                    ID : {{ number }}
+                </h3>
+                <h3>
+                    Nom : {{ name }}
+                </h3>
+                <h3>
+                    Taille : {{ height }}
+                </h3>
+                <h3>
+                    Poids : {{ weight }}
+                </h3>
+                <h3>
+                    Type : {{ type1 }} {{ type2 }}
+                </h3>
+                <h3>
+                    Abilities : {{ ability }}
+                </h3>
+                <h3>
+                    Points de vie : {{ hp }}
+                </h3>
+                <h3>
+                    Attaque : {{ attack }}
+                </h3>
+                <h3>
+                    Défense : {{ defense }}
+                </h3>
+                <h3>
+                    Attaque spéciale : {{ special_attack }}
+                </h3>
+                <h3>
+                    Défense spéciale : {{ special_defense }}
+                </h3>
+                <h3>
+                    Vitesse : {{ speed }}
+                </h3>
+                <h3>
+                    <button class="btn btn-outline-light" type="submit">ddd</button>
+                </h3>
+
+            </div>
+>>>>>>> 198fe06 (ajout creer, modifier, afficher Ãequipe)
             {% else %}
             <div>
                 Veuillez entrer un nom ou un numéro de pokémon
